@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Google Classroom Buddy",
+  "version": "1.0",
+  "description": "A RAG Chatbot, helping you increase your productivity in Google Classroom.",
+  "side_panel": {
+    "default_path": "side_panel.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "identity",
+    "scripting",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://classroom.google.com/*"
+  ],
+  "oauth2": {
+    "client_id": "1061343602821-isuj4fdc76e8j7vb26anr64j0bahftkk.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/classroom.courses.readonly",
+      "https://www.googleapis.com/auth/classroom.rosters.readonly",
+      "https://www.googleapis.com/auth/classroom.course-work.readonly",
+      "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly",
+      "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly",
+      "https://www.googleapis.com/auth/classroom.announcements.readonly",
+      "https://www.googleapis.com/auth/classroom.courseworkmaterials.readonly",
+      "https://www.googleapis.com/auth/classroom.topics.readonly",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "GC Buddy"
+  },
+  "icons": {
+    "16": "GC Buddy.png",
+    "32": "GC Buddy.png",
+    "48": "GC Buddy.png",
+    "128": "GC Buddy.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://classroom.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 
